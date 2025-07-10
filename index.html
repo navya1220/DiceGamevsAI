@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navya Dice Duel - AI Challenge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1 class="neon-text">NEON DICE DUEL</h1>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="player-section">
+                <div class="avatar-container">
+                    <div class="avatar player-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="status-indicator player-status"></div>
+                </div>
+                <h2 class="player-name">YOU</h2>
+                <div class="score-container">
+                    <div class="total-score">
+                        <span>Total</span>
+                        <span class="score-value" id="player-total">0</span>
+                    </div>
+                    <div class="current-score">
+                        <span>Current</span>
+                        <span class="score-value" id="player-current">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-section">
+                <div class="dice-container">
+                    <div class="dice" id="dice">
+                        <div class="dice-face" data-face="1">
+                            <span class="dot center"></span>
+                        </div>
+                        <div class="dice-face" data-face="2">
+                            <span class="dot top-left"></span>
+                            <span class="dot bottom-right"></span>
+                        </div>
+                        <div class="dice-face" data-face="3">
+                            <span class="dot top-left"></span>
+                            <span class="dot center"></span>
+                            <span class="dot bottom-right"></span>
+                        </div>
+                        <div class="dice-face" data-face="4">
+                            <span class="dot top-left"></span>
+                            <span class="dot top-right"></span>
+                            <span class="dot bottom-left"></span>
+                            <span class="dot bottom-right"></span>
+                        </div>
+                        <div class="dice-face" data-face="5">
+                            <span class="dot top-left"></span>
+                            <span class="dot top-right"></span>
+                            <span class="dot center"></span>
+                            <span class="dot bottom-left"></span>
+                            <span class="dot bottom-right"></span>
+                        </div>
+                        <div class="dice-face" data-face="6">
+                            <span class="dot top-left"></span>
+                            <span class="dot top-right"></span>
+                            <span class="dot middle-left"></span>
+                            <span class="dot middle-right"></span>
+                            <span class="dot bottom-left"></span>
+                            <span class="dot bottom-right"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn roll-btn" id="roll-btn">
+                        <i class="fas fa-dice"></i> ROLL
+                    </button>
+                    <button class="btn hold-btn" id="hold-btn">
+                        <i class="fas fa-hand-paper"></i> HOLD
+                    </button>
+                    <button class="btn new-game-btn" id="new-game-btn">
+                        <i class="fas fa-redo"></i> NEW GAME
+                    </button>
+                </div>
+
+                <div class="message-box" id="message-box">
+                    <p>Click ROLL to start the game!</p>
+                </div>
+            </div>
+
+            <div class="ai-section">
+                <div class="avatar-container">
+                    <div class="avatar ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="status-indicator ai-status"></div>
+                </div>
+                <h2 class="ai-name">AI</h2>
+                <div class="score-container">
+                    <div class="total-score">
+                        <span>Total</span>
+                        <span class="score-value" id="ai-total">0</span>
+                    </div>
+                    <div class="current-score">
+                        <span>Current</span>
+                        <span class="score-value" id="ai-current">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="round-counter">
+            Round: <span id="round-number">1</span>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+    
+    <audio id="diceSound" src="assets/sounds/dice-roll.mp3" preload="auto"></audio>
+    <audio id="winSound" src="assets/sounds/win.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="assets/sounds/lose.mp3" preload="auto"></audio>
+
+    <script src="javascript/game.js"></script>
+</body>
+</html>
